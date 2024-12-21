@@ -1,0 +1,251 @@
+{
+  "name": "Test Adversary",
+  "type": "adversary",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "stateOfHealth": {
+      "weary": {
+        "value": false,
+        "type": "Boolean",
+        "label": "tor2e.actors.stateOfHealth.weary"
+      }
+    },
+    "attributeLevel": {
+      "value": 4,
+      "type": "Number",
+      "label": "tor2e.actors.stats.attributeLevel"
+    },
+    "endurance": {
+      "value": 30,
+      "max": 30,
+      "type": "Number",
+      "label": "tor2e.actors.stats.endurance"
+    },
+    "description": {
+      "value": "",
+      "type": "String",
+      "label": "tor2e.common.description"
+    },
+    "bonuses": {
+      "dice": {
+        "feat": 0,
+        "success": 0
+      },
+      "defense": {
+        "protection": 0,
+        "shieldParry": 0
+      },
+      "tn": {
+        "strength": 0,
+        "heart": 0,
+        "wits": 0
+      },
+      "combat": {
+        "injury": 0,
+        "piercingBlow": 10,
+        "heavyBlow": 0,
+        "pierce": 0
+      }
+    },
+    "penalties": {
+      "dice": {
+        "feat": 0,
+        "success": 0
+      }
+    },
+    "faction": {
+      "value": true,
+      "type": "Boolean",
+      "label": "tor2e.actors.stats.faction"
+    },
+    "might": {
+      "value": 1,
+      "max": 1,
+      "type": "Number",
+      "label": "tor2e.actors.stats.might"
+    },
+    "hate": {
+      "value": 5,
+      "max": 5,
+      "type": "Number",
+      "label": "tor2e.actors.stats.hate"
+    },
+    "parry": {
+      "value": 16,
+      "type": "Number",
+      "label": "tor2e.actors.stats.parry"
+    },
+    "armour": {
+      "favoured": {
+        "value": false,
+        "type": "Boolean",
+        "label": "tor2e.stats.favoured"
+      }
+    },
+    "skills": {
+      "personality": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.personality",
+        "favoured": {
+          "value": false,
+          "type": "Boolean"
+        }
+      },
+      "movement": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.movement",
+        "favoured": {
+          "value": false,
+          "type": "Boolean"
+        }
+      },
+      "perception": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.perception",
+        "favoured": {
+          "value": false,
+          "type": "Boolean"
+        }
+      },
+      "survival": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.survival",
+        "favoured": {
+          "value": false,
+          "type": "Boolean"
+        }
+      },
+      "custom": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.custom",
+        "favoured": {
+          "value": false,
+          "type": "Boolean"
+        }
+      },
+      "vocation": {
+        "value": 0,
+        "type": "Number",
+        "label": "tor2e.skillGroups.vocation",
+        "favoured": {
+          "value": false,
+          "type": "Boolean",
+          "label": "tor2e.stats.favoured"
+        }
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Test Adversary",
+    "displayName": 0,
+    "actorLink": false,
+    "appendNumber": false,
+    "prependAdjective": false,
+    "texture": {
+      "src": "icons/svg/mystery-man.svg",
+      "scaleX": 1,
+      "scaleY": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "rotation": 0
+    },
+    "width": 1,
+    "height": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.endurance"
+    },
+    "bar2": {
+      "attribute": "resources.hope"
+    },
+    "light": {
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "flags": {},
+    "randomImg": false
+  },
+  "items": [],
+  "effects": [
+    {
+      "statuses": [
+        "weary"
+      ],
+      "flags": {
+        "core": {}
+      },
+      "name": "Weary",
+      "icon": "systems/tor2e/assets/images/icons/effects/weary.svg",
+      "origin": "Actor.neEQXdcBvnqfFpHR",
+      "_id": "hZckoyKgkLUuKMil",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": 0,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "transfer": false
+    }
+  ],
+  "folder": null,
+  "flags": {
+    "exportSource": {
+      "world": "angmar-awakened",
+      "system": "tor2e",
+      "coreVersion": "11.315",
+      "systemVersion": "3.4.3"
+    }
+  },
+  "_stats": {
+    "systemId": "tor2e",
+    "systemVersion": "3.4.3",
+    "coreVersion": "11.315",
+    "createdTime": 1734751414629,
+    "modifiedTime": 1734751449311,
+    "lastModifiedBy": "DzgJzs9CkcjuB0yI"
+  }
+}
