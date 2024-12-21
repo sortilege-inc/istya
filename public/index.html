@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Actor Viewer (Single Page)</title>
+  <!-- Link to our external stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-frame">
+    <header>
+      <h1>Actor Viewer</h1>
+      <div class="header-border"></div>
+
+    </header>
+
+    <main class="two-column">
+      <p>
+        Welcome! Below is a list of available JSON files for your TTRPG. Click one to load its data.  
+        If it’s a character, you’ll see a fancy character sheet. Otherwise, you’ll see a general form.
+      </p>
+
+      <div id="fileList"></div>
+      <div id="jsonContainer"></div>
+    </main>
+
+    <footer>
+      <div class="footer-border"></div>
+      <p class="footer-text">Powered by JSON &amp; Node.js</p>
+    </footer>
+  </div>
+
+  <!-- Script with the application logic -->
+  <script src="script.js"></script>
+</body>
+</html>

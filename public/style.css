@@ -1,0 +1,336 @@
+/* -----------------------------------------------------
+   BASIC RESET & GLOBAL STYLES
+------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  min-height: 100%;
+  background: #fdfcf7; /* Off-white parchment background */
+  font-family: "Garamond", serif;
+  color: #3e2f2f; /* Softer dark text color */
+}
+
+/* -----------------------------------------------------
+   PAGE FRAME, BORDERS, & BACKGROUND
+------------------------------------------------------ */
+.page-frame {
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 2px solid #bca98e;
+  position: relative;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 240, 0.98),
+    rgba(245, 236, 210, 0.95)
+  );
+}
+
+/* Decorative corners using pseudo-elements and unicode */
+.page-frame::before,
+.page-frame::after {
+  content: "✥";
+  position: absolute;
+  font-size: 2rem;
+  color: #bca98e;
+}
+.page-frame::before {
+  top: -1rem;
+  left: -1rem;
+}
+.page-frame::after {
+  bottom: -1rem;
+  right: -1rem;
+}
+
+/* Header / Footer */
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  color: #8c2f2f; /* A deep red/burgundy color */
+}
+.header-border {
+  width: 60%;
+  height: 2px;
+  background: #8c2f2f;
+  margin: 0.5rem auto;
+  position: relative;
+}
+.header-border::before {
+  content: "❂❂❂";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -1.2rem;
+  color: #8c2f2f;
+}
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+}
+.footer-border {
+  width: 60%;
+  height: 2px;
+  background: #8c2f2f;
+  margin: 0.5rem auto;
+  position: relative;
+}
+.footer-border::before {
+  content: "❂❂❂";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -1.2rem;
+  color: #8c2f2f;
+}
+.footer-text {
+  margin-top: 0.5rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* Buttons */
+button {
+  background-color: #8c2f2f;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #a53b3b;
+}
+
+/* -----------------------------------------------------
+   GENERIC FORM STYLING
+------------------------------------------------------ */
+form {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #bca98e;
+  border-radius: 6px;
+}
+label {
+  display: block;
+  margin-top: 0.8rem;
+  font-weight: bold;
+}
+input, textarea {
+  width: 100%;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.fancy-heading {
+  font-family: "Georgia", serif;
+  color: #8c2f2f;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.fancy-heading::after {
+  content: "";
+  display: block;
+  width: 50%;
+  margin-top: 0.3rem;
+  border-bottom: 2px solid #8c2f2f;
+}
+
+/* -----------------------------------------------------
+   FANCY CHARACTER SHEET STYLING
+------------------------------------------------------ */
+.character-sheet {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 2px solid #bca98e;
+  background: rgba(255,255,255,0.5);
+  position: relative;
+}
+.character-sheet::before,
+.character-sheet::after {
+  content: "✥";
+  position: absolute;
+  font-size: 2rem;
+  color: #bca98e;
+}
+.character-sheet::before {
+  top: -1rem; left: -1rem;
+}
+.character-sheet::after {
+  bottom: -1rem; right: -1rem;
+}
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #bca98e;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+.sheet-title {
+  flex: 1;
+}
+.character-name {
+  font-size: 1.8rem;
+  color: #8c2f2f;
+  margin-bottom: 0.3rem;
+}
+.character-epithet {
+  font-style: italic;
+  color: #555;
+}
+.portrait-container {
+  width: 200px; 
+  height: 200px;
+  margin-left: 1rem;
+  border: 2px solid #bca98e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  color: #777;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+.info-column {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 0.8rem;
+  border-radius: 4px;
+}
+.info-column h2 {
+  font-size: 1.2rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #bca98e;
+  padding-bottom: 0.2rem;
+}
+.char-details {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+.char-details li {
+  margin-bottom: 0.3rem;
+}
+.attributes-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+.attribute-block {
+  text-align: center;
+}
+.attribute-block h3 {
+  color: #8c2f2f;
+  margin-bottom: 0.3rem;
+}
+.rating {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+.target-num {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* 3-column skill area above Combat */
+.skills-section {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.skills-section h2 {
+  font-size: 1.2rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #bca98e;
+  padding-bottom: 0.2rem;
+}
+.skill-grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+.skill-grid-3col h3 {
+  margin-bottom: 0.3rem;
+  color: #333;
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.2rem;
+}
+.skill-line {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* Combat */
+.combat-section {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.combat-section h2 {
+  font-size: 1.2rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #bca98e;
+  padding-bottom: 0.2rem;
+}
+.combat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.combat-column {
+  background: #f7f6f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.combat-column h3 {
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+.stat-block {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+.big-number {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #8c2f2f;
+}
+.portrait img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
