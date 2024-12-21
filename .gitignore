@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ignore the data folder
+data/
+
+# Ignore the images folder inside /public
+public/images/
