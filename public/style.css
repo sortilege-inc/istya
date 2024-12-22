@@ -14,10 +14,10 @@ html, body {
 }
 
 /* -----------------------------------------------------
-   PAGE FRAME, BORDERS, & BACKGROUND
+   PAGE FRAME, HEADER, FOOTER
 ------------------------------------------------------ */
 .page-frame {
-  max-width: 1000px;
+  max-width: 1500px;
   margin: 1rem auto;
   padding: 2rem;
   border: 2px solid #bca98e;
@@ -28,8 +28,6 @@ html, body {
     rgba(245, 236, 210, 0.95)
   );
 }
-
-/* Decorative corners using pseudo-elements and unicode */
 .page-frame::before,
 .page-frame::after {
   content: "✥";
@@ -38,22 +36,19 @@ html, body {
   color: #bca98e;
 }
 .page-frame::before {
-  top: -1rem;
-  left: -1rem;
+  top: -1rem; left: -1rem;
 }
 .page-frame::after {
-  bottom: -1rem;
-  right: -1rem;
+  bottom: -1rem; right: -1rem;
 }
 
-/* Header / Footer */
 header {
   text-align: center;
   margin-bottom: 1rem;
 }
 header h1 {
   font-size: 2rem;
-  color: #8c2f2f; /* A deep red/burgundy color */
+  color: #8c2f2f;
 }
 .header-border {
   width: 60%;
@@ -70,6 +65,7 @@ header h1 {
   top: -1.2rem;
   color: #8c2f2f;
 }
+
 footer {
   text-align: center;
   margin-top: 2rem;
@@ -112,7 +108,7 @@ button:hover {
 }
 
 /* -----------------------------------------------------
-   GENERIC FORM STYLING
+   GENERIC FORM STYLING (for non-character actors)
 ------------------------------------------------------ */
 form {
   margin-bottom: 1rem;
@@ -135,23 +131,9 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.fancy-heading {
-  font-family: "Georgia", serif;
-  color: #8c2f2f;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-.fancy-heading::after {
-  content: "";
-  display: block;
-  width: 50%;
-  margin-top: 0.3rem;
-  border-bottom: 2px solid #8c2f2f;
-}
 
 /* -----------------------------------------------------
-   FANCY CHARACTER SHEET STYLING
+   CHARACTER SHEET
 ------------------------------------------------------ */
 .character-sheet {
   width: 100%;
@@ -205,6 +187,15 @@ input, textarea {
   background: #eee;
   color: #777;
 }
+/* If showing an <img> for portrait, ensure it fits: */
+.portrait img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info grid (for left col, center col, right col, etc.) */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
@@ -224,37 +215,86 @@ input, textarea {
   border-bottom: 1px solid #bca98e;
   padding-bottom: 0.2rem;
 }
-.char-details {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
+
+/* -----------------------------------------------------
+   DIAMOND ATTRIBUTES
+------------------------------------------------------ */
+.attributes-section {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-.char-details li {
-  margin-bottom: 0.3rem;
+.attributes-section h2 {
+  font-size: 1.2rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #bca98e;
+  padding-bottom: 0.2rem;
 }
-.attributes-row {
+.attribute-row {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
-.attribute-block {
+.attr-diamond-wrapper {
   text-align: center;
+  position: relative;
 }
-.attribute-block h3 {
-  color: #8c2f2f;
+.attr-label {
+  font-weight: bold;
   margin-bottom: 0.3rem;
 }
-.rating {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #333;
-}
-.target-num {
-  font-size: 0.9rem;
-  color: #555;
+
+/* Large diamond for attribute value */
+.diamond {
+  width: 60px;
+  height: 60px;
+  background: #eee;
+  border: 2px solid #8c2f2f;
+  transform: rotate(45deg);
+  position: relative; /* Ensure the small diamond is positioned relative to this */
+  margin: 1rem auto 1rem auto;
 }
 
-/* 3-column skill area above Combat */
+.diamond-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg); /* Rotate text back to horizontal */
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.small-diamond {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #8c2f2f;
+  transform: rotate(0deg);
+  position: absolute; /* Position relative to .diamond */
+  top: -31px; /* Adjust this value for vertical alignment */
+  right: -2px; /* Adjust this value for horizontal alignment */
+}
+
+.small-diamond-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg); /* Rotate text back to horizontal */
+  font-size: 0.8rem;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* -----------------------------------------------------
+   SKILLS SECTION
+------------------------------------------------------ */
 .skills-section {
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -282,11 +322,28 @@ input, textarea {
   padding-bottom: 0.2rem;
 }
 .skill-line {
-  margin: 0.3rem 0;
+  margin: 0.1rem 0;
   font-size: 0.9rem;
 }
 
-/* Combat */
+/* Squares for skill rating */
+.box {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.2rem;
+  border: 1px solid #555;
+  vertical-align: middle;
+}
+.box.filled {
+  background: #8c2f2f;
+}
+
+/* or you can use the ■/□ approach if you prefer text squares instead */
+
+/* -----------------------------------------------------
+   COMBAT SECTION
+------------------------------------------------------ */
 .combat-section {
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -328,9 +385,270 @@ input, textarea {
   font-weight: bold;
   color: #8c2f2f;
 }
-.portrait img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+/* -----------------------------------------------------
+   COMBAT SECTION
+------------------------------------------------------ */
+.combat-section {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.combat-section h2 {
+  font-size: 1.4rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #bca98e;
+  padding-bottom: 0.2rem;
+}
+
+/* Grid for main combat section */
+.combat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+.combat-column h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: #333;
+}
+.combat-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.combat-column li {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+/* Stat blocks for Parry and Protection */
+.stat-block {
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+/* War Gear Table */
+.combat-row.war-gear {
+  margin-top: 1rem;
+}
+.combat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.combat-table th, .combat-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+.combat-table th {
+  background: #f8f8f8;
+  color: #333;
+  font-weight: bold;
+}
+.combat-table td {
+  font-size: 0.9rem;
+}
+
+/* Armour List */
+.combat-row.armour {
+  margin-top: 1rem;
+}
+.combat-row.armour ul {
+  list-style: none;
+  padding: 0;
+}
+.combat-row.armour li {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  cursor: help; /* Show a question-mark cursor on hover */
+  text-decoration: underline dotted; /* Dotted underline for tooltips */
+}
+
+.tooltip:hover::after {
+  content: attr(title); /* Use the title attribute as the tooltip content */
+  position: absolute;
+  bottom: 120%; /* Position tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.tooltip:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 110%; /* Align arrow below the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent; /* Create an arrow */
+  border-top-color: #333;
+  z-index: 1000;
+}
+
+.tooltip::after {
+  opacity: 0;
+}
+
+.log-container {
+  background: #fdfcf7;
+  border: 2px solid #bca98e;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-y: auto;
+  font-family: "Garamond", serif;
+}
+
+.log-container h2 {
+  font-size: 1.2rem;
+  color: #8c2f2f;
+  margin-bottom: 0.5rem;
+}
+
+.log-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.log-container li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.roll-button {
+  background: none;
+  color: #8c2f2f;
+  border: none;
+  padding: 0.1rem 0.1rem;
+  font-size: 0.9rem; /* Adjust size */
+  font-family: "Garamond", serif;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.roll-button:hover {
+  color: #8c2f2f; /* Change color on hover */
+  text-shadow: 0 0 2px #8c2f2f;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 1rem;
+}
+
+.side-container {
+  background: #fdfcf7;
+  border: 2px solid #bca98e;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+#fileList button {
   display: block;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+#logContainer {
+  height: auto; /* Adjust height dynamically */
+  overflow-y: auto;
+}
+
+.skill-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-line button {
+  flex: 1;
+  text-align: left;
+}
+
+.skill-line span {
+  display: inline-flex;
+  gap: 0.1rem;
+}
+
+.skill-line .box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 2px;
+  border: 1px solid #8c2f2f;
+  background-color: transparent;
+}
+
+.skill-line .box.filled {
+  background-color: #8c2f2f;
+}
+.endurance-hope-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.endurance, .hope {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.gear-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr;
+  gap: 1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.info-column ul {
+  padding-left: 0rem; /* Adjust to bring bullets inside */
+  margin: 0; /* Remove extra margin */
+  list-style-position: inside; /* Ensures bullets stay inside the container */
+}
+
+.info-column li {
+  margin-bottom: 0.2rem; /* Add spacing between list items */
+}
+.character-status {
+  display: flex; /* Arrange items in a row */
+  justify-content: center; /* Center align the items */
+  gap: 2rem; /* Space between each label */
+  margin-top: 0.5rem;
+}
+
+.character-status label {
+  display: flex;
+  align-items: center; /* Align text and checkbox vertically */
+  gap: 0.5rem; /* Space between text and checkbox */
 }

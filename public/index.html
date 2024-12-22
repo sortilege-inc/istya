@@ -2,35 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Actor Viewer (Single Page)</title>
-  <!-- Link to our external stylesheet -->
+  <title>The One Ring, 2ⁿᵈ Edition</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page-frame">
     <header>
-      <h1>Actor Viewer</h1>
+      <h1>The One Ring, 2ⁿᵈ Edition</h1>
       <div class="header-border"></div>
-
     </header>
 
-    <main class="two-column">
-      <p>
-        Welcome! Below is a list of available JSON files for your TTRPG. Click one to load its data.  
-        If it’s a character, you’ll see a fancy character sheet. Otherwise, you’ll see a general form.
-      </p>
-
-      <div id="fileList"></div>
-      <div id="jsonContainer"></div>
+    <main>
+      <div id="leftColumn" class="side-container">
+        <p>
+          Welcome! Below is a list of available JSON files for your TTRPG.
+          Click one to load its data.
+        </p>
+        <div id="fileList"></div>
+      </div>
+      <div id="mainContent">
+        <div id="jsonContainer"></div>
+      </div>
+      <div id="logContainer" class="log-container">
+        <h2>Log</h2>
+        <ul id="log"></ul>
+      </div>
     </main>
 
     <footer>
       <div class="footer-border"></div>
-      <p class="footer-text">Powered by JSON &amp; Node.js</p>
+      <p class="footer-text">Sortilege Incorporated 2024</p>
     </footer>
   </div>
 
-  <!-- Script with the application logic -->
+
   <script src="script.js"></script>
 </body>
 </html>
